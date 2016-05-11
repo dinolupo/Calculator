@@ -7,14 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3113AF371CDC937D005D8FE0 /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3113AF361CDC937D005D8FE0 /* DataStructures.swift */; };
+		313D48641CDA357E003AA872 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 313D485E1CDA3372003AA872 /* DS-DIGI.TTF */; };
+		313D48651CDA357E003AA872 /* DS-DIGIB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 313D485F1CDA3372003AA872 /* DS-DIGIB.TTF */; };
+		313D48661CDA357E003AA872 /* DS-DIGII.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 313D48601CDA3372003AA872 /* DS-DIGII.TTF */; };
+		313D48671CDA357E003AA872 /* DS-DIGIT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 313D48611CDA3372003AA872 /* DS-DIGIT.TTF */; };
 		31B383391CD78F2800E00598 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B383381CD78F2800E00598 /* AppDelegate.swift */; };
 		31B3833B1CD78F2800E00598 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B3833A1CD78F2800E00598 /* ViewController.swift */; };
 		31B3833E1CD78F2800E00598 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31B3833C1CD78F2800E00598 /* Main.storyboard */; };
 		31B383401CD78F2800E00598 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31B3833F1CD78F2800E00598 /* Assets.xcassets */; };
 		31B383431CD78F2800E00598 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31B383411CD78F2800E00598 /* LaunchScreen.storyboard */; };
+		31B3834C1CD7B62800E00598 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B3834B1CD7B62800E00598 /* CalculatorBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3113AF361CDC937D005D8FE0 /* DataStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStructures.swift; sourceTree = "<group>"; };
+		313D485E1CDA3372003AA872 /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGI.TTF"; sourceTree = "<group>"; };
+		313D485F1CDA3372003AA872 /* DS-DIGIB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGIB.TTF"; sourceTree = "<group>"; };
+		313D48601CDA3372003AA872 /* DS-DIGII.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGII.TTF"; sourceTree = "<group>"; };
+		313D48611CDA3372003AA872 /* DS-DIGIT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGIT.TTF"; sourceTree = "<group>"; };
 		31B383351CD78F2700E00598 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B383381CD78F2800E00598 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31B3833A1CD78F2800E00598 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +33,7 @@
 		31B3833F1CD78F2800E00598 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31B383421CD78F2800E00598 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31B383441CD78F2800E00598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31B3834B1CD7B62800E00598 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +47,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		313D48631CDA3386003AA872 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				313D485E1CDA3372003AA872 /* DS-DIGI.TTF */,
+				313D485F1CDA3372003AA872 /* DS-DIGIB.TTF */,
+				313D48601CDA3372003AA872 /* DS-DIGII.TTF */,
+				313D48611CDA3372003AA872 /* DS-DIGIT.TTF */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
 		31B3832C1CD78F2700E00598 = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +77,25 @@
 		31B383371CD78F2800E00598 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				31B383381CD78F2800E00598 /* AppDelegate.swift */,
 				31B3833A1CD78F2800E00598 /* ViewController.swift */,
 				31B3833C1CD78F2800E00598 /* Main.storyboard */,
+				31B3834B1CD7B62800E00598 /* CalculatorBrain.swift */,
+				3113AF361CDC937D005D8FE0 /* DataStructures.swift */,
+				31B3834A1CD791CF00E00598 /* Supporting Files */,
+			);
+			path = Calculator;
+			sourceTree = "<group>";
+		};
+		31B3834A1CD791CF00E00598 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				313D48631CDA3386003AA872 /* fonts */,
+				31B383381CD78F2800E00598 /* AppDelegate.swift */,
 				31B3833F1CD78F2800E00598 /* Assets.xcassets */,
 				31B383411CD78F2800E00598 /* LaunchScreen.storyboard */,
 				31B383441CD78F2800E00598 /* Info.plist */,
 			);
-			path = Calculator;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +130,7 @@
 				TargetAttributes = {
 					31B383341CD78F2700E00598 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = LE2F223RL4;
 					};
 				};
 			};
@@ -122,6 +157,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				313D48641CDA357E003AA872 /* DS-DIGI.TTF in Resources */,
+				313D48651CDA357E003AA872 /* DS-DIGIB.TTF in Resources */,
+				313D48661CDA357E003AA872 /* DS-DIGII.TTF in Resources */,
+				313D48671CDA357E003AA872 /* DS-DIGIT.TTF in Resources */,
 				31B383431CD78F2800E00598 /* LaunchScreen.storyboard in Resources */,
 				31B383401CD78F2800E00598 /* Assets.xcassets in Resources */,
 				31B3833E1CD78F2800E00598 /* Main.storyboard in Resources */,
@@ -135,6 +174,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3113AF371CDC937D005D8FE0 /* DataStructures.swift in Sources */,
+				31B3834C1CD7B62800E00598 /* CalculatorBrain.swift in Sources */,
 				31B3833B1CD78F2800E00598 /* ViewController.swift in Sources */,
 				31B383391CD78F2800E00598 /* AppDelegate.swift in Sources */,
 			);
@@ -251,6 +292,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.dinolupo.Calculator;
@@ -262,6 +304,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.dinolupo.Calculator;
@@ -288,6 +331,7 @@
 				31B383491CD78F2800E00598 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
