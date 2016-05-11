@@ -1,0 +1,3 @@
+[submodule "Libraries/CleanroomLogger"]
+	path = Libraries/CleanroomLogger
+	url = https://github.com/emaloney/CleanroomLogger

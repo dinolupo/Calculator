@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3112B3BA1CE337400076FDB1 /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3112B3B81CE337400076FDB1 /* CleanroomASL.framework */; };
+		3112B3BB1CE337400076FDB1 /* CleanroomASL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3112B3B81CE337400076FDB1 /* CleanroomASL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3112B3BC1CE337400076FDB1 /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3112B3B91CE337400076FDB1 /* CleanroomLogger.framework */; };
+		3112B3BD1CE337400076FDB1 /* CleanroomLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3112B3B91CE337400076FDB1 /* CleanroomLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3113AF371CDC937D005D8FE0 /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3113AF361CDC937D005D8FE0 /* DataStructures.swift */; };
+		313BBF6C1CE37BC100A9038C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313BBF6B1CE37BC100A9038C /* Constants.swift */; };
 		313D48641CDA357E003AA872 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 313D485E1CDA3372003AA872 /* DS-DIGI.TTF */; };
 		313D48651CDA357E003AA872 /* DS-DIGIB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 313D485F1CDA3372003AA872 /* DS-DIGIB.TTF */; };
 		313D48661CDA357E003AA872 /* DS-DIGII.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 313D48601CDA3372003AA872 /* DS-DIGII.TTF */; };
@@ -20,8 +25,79 @@
 		31B3834C1CD7B62800E00598 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B3834B1CD7B62800E00598 /* CalculatorBrain.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3112B3AA1CE335FC0076FDB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3112B39F1CE335FB0076FDB1 /* CleanroomLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B00E55D1BA3782D0011486D;
+			remoteInfo = "CleanroomLogger-iOS";
+		};
+		3112B3AC1CE335FC0076FDB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3112B39F1CE335FB0076FDB1 /* CleanroomLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B00E57C1BA379830011486D;
+			remoteInfo = "CleanroomLogger-OSX";
+		};
+		3112B3AE1CE335FC0076FDB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3112B39F1CE335FB0076FDB1 /* CleanroomLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B00E59A1BA37A420011486D;
+			remoteInfo = "CleanroomLogger-tvOS";
+		};
+		3112B3B01CE335FC0076FDB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3112B39F1CE335FB0076FDB1 /* CleanroomLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B78C6CE1BA7634E00173EAC;
+			remoteInfo = "CleanroomLogger-watchOS";
+		};
+		3112B3B21CE335FC0076FDB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3112B39F1CE335FB0076FDB1 /* CleanroomLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B00E5671BA3782D0011486D;
+			remoteInfo = "CleanroomLoggerUnitTests-iOS";
+		};
+		3112B3B41CE335FC0076FDB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3112B39F1CE335FB0076FDB1 /* CleanroomLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B00E5851BA379830011486D;
+			remoteInfo = "CleanroomLoggerUnitTests-OSX";
+		};
+		3112B3B61CE335FC0076FDB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3112B39F1CE335FB0076FDB1 /* CleanroomLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B00E5A31BA37A420011486D;
+			remoteInfo = "CleanroomLoggerUnitTests-tvOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3112B3BE1CE337400076FDB1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3112B3BB1CE337400076FDB1 /* CleanroomASL.framework in Embed Frameworks */,
+				3112B3BD1CE337400076FDB1 /* CleanroomLogger.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3112B39F1CE335FB0076FDB1 /* CleanroomLogger.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanroomLogger.xcodeproj; path = Libraries/CleanroomLogger/CleanroomLogger.xcodeproj; sourceTree = "<group>"; };
+		3112B3B81CE337400076FDB1 /* CleanroomASL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanroomASL.framework; path = "../../../../../../../../Documents/xcode-projects/Calculator/CleanroomASL.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3112B3B91CE337400076FDB1 /* CleanroomLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanroomLogger.framework; path = "../../../../../../../../Documents/xcode-projects/Calculator/CleanroomLogger.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3113AF361CDC937D005D8FE0 /* DataStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStructures.swift; sourceTree = "<group>"; };
+		313BBF6B1CE37BC100A9038C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		313D485E1CDA3372003AA872 /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGI.TTF"; sourceTree = "<group>"; };
 		313D485F1CDA3372003AA872 /* DS-DIGIB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGIB.TTF"; sourceTree = "<group>"; };
 		313D48601CDA3372003AA872 /* DS-DIGII.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGII.TTF"; sourceTree = "<group>"; };
@@ -41,12 +117,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3112B3BA1CE337400076FDB1 /* CleanroomASL.framework in Frameworks */,
+				3112B3BC1CE337400076FDB1 /* CleanroomLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3112B3A01CE335FB0076FDB1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3112B3AB1CE335FC0076FDB1 /* CleanroomLogger.framework */,
+				3112B3AD1CE335FC0076FDB1 /* CleanroomLogger.framework */,
+				3112B3AF1CE335FC0076FDB1 /* CleanroomLogger.framework */,
+				3112B3B11CE335FC0076FDB1 /* CleanroomLogger.framework */,
+				3112B3B31CE335FC0076FDB1 /* CleanroomLoggerUnitTests.xctest */,
+				3112B3B51CE335FC0076FDB1 /* CleanroomLoggerUnitTests.xctest */,
+				3112B3B71CE335FC0076FDB1 /* CleanroomLoggerUnitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3112B3BF1CE338630076FDB1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3112B3B81CE337400076FDB1 /* CleanroomASL.framework */,
+				3112B3B91CE337400076FDB1 /* CleanroomLogger.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		313D48631CDA3386003AA872 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -61,8 +162,10 @@
 		31B3832C1CD78F2700E00598 = {
 			isa = PBXGroup;
 			children = (
+				3112B3BF1CE338630076FDB1 /* Frameworks */,
 				31B383371CD78F2800E00598 /* Calculator */,
 				31B383361CD78F2700E00598 /* Products */,
+				3112B39F1CE335FB0076FDB1 /* CleanroomLogger.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +184,7 @@
 				31B3833C1CD78F2800E00598 /* Main.storyboard */,
 				31B3834B1CD7B62800E00598 /* CalculatorBrain.swift */,
 				3113AF361CDC937D005D8FE0 /* DataStructures.swift */,
+				313BBF6B1CE37BC100A9038C /* Constants.swift */,
 				31B3834A1CD791CF00E00598 /* Supporting Files */,
 			);
 			path = Calculator;
@@ -108,6 +212,7 @@
 				31B383311CD78F2700E00598 /* Sources */,
 				31B383321CD78F2700E00598 /* Frameworks */,
 				31B383331CD78F2700E00598 /* Resources */,
+				3112B3BE1CE337400076FDB1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -145,12 +250,70 @@
 			mainGroup = 31B3832C1CD78F2700E00598;
 			productRefGroup = 31B383361CD78F2700E00598 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3112B3A01CE335FB0076FDB1 /* Products */;
+					ProjectRef = 3112B39F1CE335FB0076FDB1 /* CleanroomLogger.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				31B383341CD78F2700E00598 /* Calculator */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3112B3AB1CE335FC0076FDB1 /* CleanroomLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CleanroomLogger.framework;
+			remoteRef = 3112B3AA1CE335FC0076FDB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3112B3AD1CE335FC0076FDB1 /* CleanroomLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CleanroomLogger.framework;
+			remoteRef = 3112B3AC1CE335FC0076FDB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3112B3AF1CE335FC0076FDB1 /* CleanroomLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CleanroomLogger.framework;
+			remoteRef = 3112B3AE1CE335FC0076FDB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3112B3B11CE335FC0076FDB1 /* CleanroomLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CleanroomLogger.framework;
+			remoteRef = 3112B3B01CE335FC0076FDB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3112B3B31CE335FC0076FDB1 /* CleanroomLoggerUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CleanroomLoggerUnitTests.xctest;
+			remoteRef = 3112B3B21CE335FC0076FDB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3112B3B51CE335FC0076FDB1 /* CleanroomLoggerUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CleanroomLoggerUnitTests.xctest;
+			remoteRef = 3112B3B41CE335FC0076FDB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3112B3B71CE335FC0076FDB1 /* CleanroomLoggerUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CleanroomLoggerUnitTests.xctest;
+			remoteRef = 3112B3B61CE335FC0076FDB1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		31B383331CD78F2700E00598 /* Resources */ = {
@@ -174,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				313BBF6C1CE37BC100A9038C /* Constants.swift in Sources */,
 				3113AF371CDC937D005D8FE0 /* DataStructures.swift in Sources */,
 				31B3834C1CD7B62800E00598 /* CalculatorBrain.swift in Sources */,
 				31B3833B1CD78F2800E00598 /* ViewController.swift in Sources */,
@@ -293,6 +457,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.dinolupo.Calculator;
@@ -305,6 +473,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.dinolupo.Calculator;

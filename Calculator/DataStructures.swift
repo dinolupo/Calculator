@@ -1,5 +1,5 @@
 //
-//  Stack.swift
+//  DataStructures.swift
 //  Calculator
 //
 //  Created by Dino Lupo on 06/05/16.
