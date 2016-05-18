@@ -12,11 +12,16 @@
  
  class CalculatorBrain {
     
-    
+    // store last executed binary operation, in case the user press "=" symbol multiple times,
+    // this operation will be executed
+    private var lastBinaryOperation: BinaryOperationInfo?
     
     // store a list of input symbols to print operations executed on the calculator
     private var inputSymbolsArray = [String]()
 
+    // if last input is a number then true, else false
+    private var lastIsOperand: Bool = false
+    
     // list of all supported calculator operations
     var operations: Dictionary<String, Operation> = [
         "π" : Operation.Constant(M_PI),
@@ -27,7 +32,9 @@
         "÷" : Operation.BinaryOperation(/),
         "+" : Operation.BinaryOperation(+),
         "−" : Operation.BinaryOperation(-),
-        "=" : Operation.Equals
+        "=" : Operation.Equals,
+        "AC": Operation.Reset
+        
     ]
     
     enum Operation {
@@ -35,23 +42,24 @@
         case UnaryOperation((Double) -> Double)
         case BinaryOperation((Double,Double) -> Double)
         case Equals
-        case Number(Double)
+        case Reset
     }
     
-    private var isPartialResult : Bool {
+    var isPartialResult : Bool {
         get {
-            return pending != nil
+            return pendingBinaryOperation != nil
         }
     }
     
     private var accumulator = 0.0
     
-    private struct PendingBinaryOperationInfo {
+    private struct BinaryOperationInfo {
+        var symbol: String
         var binaryFunction: (Double, Double) -> Double
-        var firstOperand: Double
+        var operand: Double
     }
     
-    private var pending: PendingBinaryOperationInfo?
+    private var pendingBinaryOperation: BinaryOperationInfo?
     
     var result: Double {
         get {
@@ -69,7 +77,8 @@
         
         if isPartialResult {
             desc = "\(desc)..."
-        } else {
+        }
+        else {
             desc = "\(desc)="
         }
         
@@ -79,6 +88,7 @@
     
     // called when an operand has been added
     func setOperand(operand: Double) {
+        lastIsOperand = true
         Log.verbose?.trace()
         Log.verbose?.value(operand)
         accumulator = operand
@@ -98,6 +108,7 @@
             
             switch operation {
             case .Constant(let value):
+                lastIsOperand = true
                 // update symbols array
                 if !isPartialResult {
                     inputSymbolsArray.removeAll()
@@ -108,6 +119,7 @@
                 accumulator = value
                 
             case .UnaryOperation(let function):
+                lastIsOperand = true
                 // update symbols array
                 let unaryOperand = inputSymbolsArray.popLast()!
                 inputSymbolsArray.append("\(symbol)(\(unaryOperand))")
@@ -116,42 +128,73 @@
                 accumulator = function(accumulator)
                 
             case .BinaryOperation(let function):
-                // update symbols array
+                lastIsOperand = false
+                // execute operation
+                executePendingBinaryOperation()
+                pendingBinaryOperation = BinaryOperationInfo(symbol: symbol, binaryFunction: function, operand: accumulator)
+                
+                // update description symbols array
                 inputSymbolsArray.append(symbol)
-                
-                // execute operation
-                executePendingBinaryOperation()
-                pending = PendingBinaryOperationInfo(binaryFunction: function, firstOperand: accumulator)
-                
+
             case .Equals:
-                // execute operation
-                executePendingBinaryOperation()
-                
-            default:
-                break
-                
+               
+                if isPartialResult {
+                    if !lastIsOperand {
+                        setOperand((pendingBinaryOperation?.operand)!)
+                    }
+                    
+                    executePendingBinaryOperation()
+                } else {
+                    executePreviousOperation()
+                }
+
+            case .Reset:
+                accumulator = 0.0
+                pendingBinaryOperation = nil
+                lastBinaryOperation = nil
+                inputSymbolsArray.removeAll()
             }
+        }
+    }
+    
+    // this will be called on subsequent press of Equals sign
+    private func executePreviousOperation() {
+        Log.verbose?.trace()
+        if lastBinaryOperation != nil {
+            // update the symbols array for building the string of all executed operations
             
-            Log.info?.message("------------------------------")
-            Log.warning?.message(evalDescription())
+            // update symbols array
+            let secondOperand = String(format: Constants.DOUBLE_FORMAT_PRECISION, lastBinaryOperation!.operand)
+            let operation = lastBinaryOperation!.symbol
+            let firstOperand = inputSymbolsArray.popLast()!
+            let executedOperation = "\(firstOperand) \(operation) \(secondOperand)"
+            inputSymbolsArray.append(executedOperation)
+            
+            // execute again the binary operation on multiple "=" touch
+            accumulator = lastBinaryOperation!.binaryFunction(accumulator, lastBinaryOperation!.operand)
         }
     }
     
     
     private func executePendingBinaryOperation() {
         Log.verbose?.trace()
-        if pending != nil {
-            // update symbols array
+        Log.warning?.message(evalDescription())
+        if pendingBinaryOperation != nil {
+            
+            // merge the current binary operation into a single description symbol
             let secondOperand = inputSymbolsArray.popLast()!
             let operation = inputSymbolsArray.popLast()!
             let firstOperand = inputSymbolsArray.popLast()!
             let executedOperation = "\(firstOperand) \(operation) \(secondOperand)"
             inputSymbolsArray.append(executedOperation)
             
-            // execute operation
-            accumulator = pending!.binaryFunction(pending!.firstOperand, accumulator)
+            // store last binary function and last operand in case the user press = signs again execute operation again
+            lastBinaryOperation = BinaryOperationInfo(symbol: pendingBinaryOperation!.symbol, binaryFunction: pendingBinaryOperation!.binaryFunction, operand: accumulator)
             
-            pending = nil
+            // execute operation
+            accumulator = pendingBinaryOperation!.binaryFunction(pendingBinaryOperation!.operand, accumulator)
+            
+            pendingBinaryOperation = nil
         }
     }
     

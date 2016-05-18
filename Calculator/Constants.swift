@@ -9,6 +9,6 @@
 import Foundation
 
 struct Constants {
-    static let DOUBLE_FORMAT_PRECISION = "%.10g"
-    static let INT_FORMAT_PRECISION = "%.0g"
+    static let DOUBLE_FORMAT_PRECISION = "%.16g"
+    static let INT_FORMAT_PRECISION = "%.0f"
 }

@@ -9,7 +9,7 @@
 import UIKit
 import CleanroomLogger
 
-class ViewController: UIViewController {
+class CalculatorViewController: UIViewController {
 
     // the calculator brain
     private var brain = CalculatorBrain()
@@ -22,6 +22,20 @@ class ViewController: UIViewController {
     
     // calculator display
     @IBOutlet private weak var display: UILabel!
+    
+    // clear button
+    @IBOutlet weak var clearButton: UIButton!
+
+    @IBAction func touchClearReset(sender: UIButton) {
+        if sender.currentTitle == "AC" {
+            brain.performOperation(sender.currentTitle!)
+        } else {
+            displayValue = 0.0
+            userIsInTheMiddleOfTyping = false
+            sender.setTitle("AC", forState: UIControlState.Normal)
+        }
+        updateDisplayOperands()
+    }
     
     // touch the dot to input floating point numbers
     @IBAction func touchDot(sender: UIButton) {
@@ -43,7 +57,7 @@ class ViewController: UIViewController {
         //print("touched \(digit) digit")
         if userIsInTheMiddleOfTyping {
             let textCurrentlyInDisplay = display.text!
-            if displayValue == 0 && digit == "0" {
+            if displayValue == 0 && digit == "0" && !((display.text?.containsString("."))!) {
                 return
             }
             display.text = textCurrentlyInDisplay + digit
@@ -51,6 +65,7 @@ class ViewController: UIViewController {
             display.text = digit
         }
         userIsInTheMiddleOfTyping = true
+        clearButton.setTitle("C", forState: UIControlState.Normal)
     }
     
     // update the displayOperands
@@ -61,9 +76,14 @@ class ViewController: UIViewController {
     // variable to simplify set and get of the calculator display
     private var displayValue : Double {
         get {
-            return Double(display.text!)!
+            if let val = display.text {
+                return Double(val)!
+            } else {
+                return 0.0
+            }
         }
         set {
+            clearButton.setTitle("C", forState: UIControlState.Normal)
             if (newValue % 1 == 0) {
                 display.text = String(format: Constants.INT_FORMAT_PRECISION, newValue)
                 //display.text = String(Int(newValue))
@@ -76,14 +96,17 @@ class ViewController: UIViewController {
 
     // touch an operation
     @IBAction private func performOperation(sender: UIButton) {
+        
         if userIsInTheMiddleOfTyping {
             brain.setOperand(displayValue)
             userIsInTheMiddleOfTyping = false
         }
+        
         if let mathematicalSymbol = sender.currentTitle {
             brain.performOperation(mathematicalSymbol)
         }
         displayValue = brain.result
+        Log.info?.message("brain result: \(brain.result)")
         updateDisplayOperands()
     }
     
