@@ -128,9 +128,14 @@
                 accumulator = function(accumulator)
                 
             case .BinaryOperation(let function):
+                if lastIsOperand {
+                    // execute operation
+                    executePendingBinaryOperation()
+                } else { // changed mind about operation to be executed
+                    inputSymbolsArray.removeLast()
+                }
                 lastIsOperand = false
-                // execute operation
-                executePendingBinaryOperation()
+                
                 pendingBinaryOperation = BinaryOperationInfo(symbol: symbol, binaryFunction: function, operand: accumulator)
                 
                 // update description symbols array
