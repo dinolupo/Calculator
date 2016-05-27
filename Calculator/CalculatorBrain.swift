@@ -22,6 +22,37 @@
     // if last input is a number then true, else false
     private var lastIsOperand: Bool = false
     
+    // Internal Program
+    private var internalProgram = [AnyObject]()
+    
+    // store the "program"
+    typealias PropertyList = AnyObject
+    var program: PropertyList {
+        get {
+            return internalProgram
+        }
+        set {
+            clear()
+            if let arrayOfOps = newValue as? [AnyObject] {
+                for op in arrayOfOps {
+                    if let operand = op as? Double {
+                        setOperand(operand)
+                    } else if let operation = op as? String {
+                        performOperation(operation)
+                    }
+                }
+            }
+        }
+    }
+    
+    func clear() {
+        accumulator = 0.0
+        pendingBinaryOperation = nil
+        lastBinaryOperation = nil
+        inputSymbolsArray.removeAll()
+        internalProgram.removeAll()
+    }
+    
     // list of all supported calculator operations
     var operations: Dictionary<String, Operation> = [
         "π" : Operation.Constant(M_PI),
@@ -33,14 +64,17 @@
         "+" : Operation.BinaryOperation(+),
         "−" : Operation.BinaryOperation(-),
         "=" : Operation.Equals,
-        "AC": Operation.Reset
+        "AC": Operation.Reset,
         
     ]
+    
+    var variableValues: Dictionary<String, Double> = [:]
     
     enum Operation {
         case Constant(Double)
         case UnaryOperation((Double) -> Double)
         case BinaryOperation((Double,Double) -> Double)
+        case Variable(String)
         case Equals
         case Reset
     }
@@ -66,7 +100,7 @@
             return accumulator
         }
     }
-
+    
     // prints a description of all operations inputed on the calculator
     func evalDescription() -> String {
         
@@ -86,12 +120,20 @@
         
     }
     
+    // called when a variable has been added
+    func setOperand(operand: String) {
+        if operations[operand] == nil {
+            operations[operand] = Operation.Variable(operand)
+        }
+    }
+    
     // called when an operand has been added
     func setOperand(operand: Double) {
         lastIsOperand = true
         Log.verbose?.trace()
         Log.verbose?.value(operand)
         accumulator = operand
+        internalProgram.append(operand)
         
         // update symbols array
         if !isPartialResult {
@@ -104,6 +146,7 @@
     func performOperation(symbol: String) {
         Log.verbose?.trace()
         Log.verbose?.value(symbol)
+        internalProgram.append(symbol)
         if let operation = operations[symbol] {
             
             switch operation {
@@ -154,10 +197,11 @@
                 }
 
             case .Reset:
-                accumulator = 0.0
-                pendingBinaryOperation = nil
-                lastBinaryOperation = nil
-                inputSymbolsArray.removeAll()
+                clear()
+            
+            case .Variable(let variable):
+                Log.error?.message("Variable Input: \(variable)")
+            
             }
         }
     }
